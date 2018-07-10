@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LukasModelStoreContainer" CdmEntityContainer="LukasEntities">
+    <EntitySetMapping Name="dept">
+      <EntityTypeMapping TypeName="LukasModel.dept">
+        <MappingFragment StoreEntitySet="dept">
+          <ScalarProperty Name="dept_id" ColumnName="dept_id" />
+          <ScalarProperty Name="dept_name" ColumnName="dept_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="LukasModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="dept_id" ColumnName="dept_id" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

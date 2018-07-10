@@ -1,0 +1,48 @@
+﻿@model MVCtest20180709.Models.user
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>user</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.user_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.update_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.update_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dept.dept_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dept.dept_name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
