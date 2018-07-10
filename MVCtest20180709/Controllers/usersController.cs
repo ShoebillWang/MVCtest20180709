@@ -4,9 +4,11 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using MVCtest20180709.Models;
+using System.Linq.Expressions;
 
 namespace MVCtest20180709.Controllers
 {
@@ -15,10 +17,16 @@ namespace MVCtest20180709.Controllers
         private LukasEntities db = new LukasEntities();
 
         // GET: users
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            var user = db.user.Include(u => u.dept);
-            return View(user.ToList());
+            var user = from q in db.user
+                         select q;
+            if (!String.IsNullOrEmpty(searchString)) {
+                user = user.Where(s => s.user_name.Contains(searchString));
+            }
+            return View(user);
+            //var user = db.user.Include(u => u.dept);
+            //return View(user.ToList());
         }
 
         // GET: users/Details/5

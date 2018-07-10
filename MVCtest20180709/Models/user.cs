@@ -12,6 +12,9 @@ namespace MVCtest20180709.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Linq.Expressions;
 
     public partial class user
     {
@@ -20,7 +23,11 @@ namespace MVCtest20180709.Models
         public string user_name { get; set; }
         public Nullable<int> dept_id { get; set; }
         public Nullable<System.DateTime> update_date { get; set; }
-    
+
+        internal static object AsEnumerable() {
+            throw new NotImplementedException();
+        }
+
         public virtual dept dept { get; set; }
     }
 }
